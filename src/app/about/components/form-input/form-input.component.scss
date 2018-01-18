@@ -1,0 +1,10 @@
+.form-input{
+    background:yellow;
+    border:none;
+    padding:5px;
+    font-size:16px;
+    outline:none;
+    &:active,&:focus{
+        border:1px dotted purple;
+    }
+}
