@@ -1,0 +1,80 @@
+/* You can add global styles to this file, and also import other style files */
+@import './variables';
+@import './mixins';
+@import url('https://fonts.googleapis.com/css?family=Comfortaa|Roboto+Slab:300');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: $default-font-family;
+  color: $font-color;
+  background: $main-color;
+  user-select: none;
+}
+
+header, menu {
+  margin: 0;
+  padding: 0;
+  display: initial;
+}
+
+button, input {
+  outline: none;
+}
+
+button.close {
+  background: rgb(251, 74, 74) url("../assets/close-icon.png");
+  width: 28px;
+  height: 28px;
+  background-size: cover;
+  border: none;
+  z-index: 2;
+  /* border-radius: 15px; */
+  cursor: pointer;
+}
+
+
+.page {
+  .title {
+    text-align: center;
+    margin-bottom: 32px;
+    span {
+      font-size: 26px;
+      background: $second-color;
+      color: $second-font-color;
+      padding: 2px 5px;
+      text-shadow: $fantastic-text-shadow;
+      font-family: $title-font-family;
+    }
+  }
+}
+
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width: 320px) {
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: 480px) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: 768px) {
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width: 992px) {
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width: 1200px) {
+}
+
+
+
+
