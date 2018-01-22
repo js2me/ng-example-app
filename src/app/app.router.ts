@@ -11,5 +11,9 @@ export const AppRouter: ModuleWithProviders = RouterModule.forRoot([
     {
         path: 'about',
         loadChildren: 'app/about/about.module#AboutModule'
+    },
+    {
+        path: 'login',
+        loadChildren: 'app/login/login.module#LoginModule'
     }
 ]);

@@ -11,6 +11,7 @@ body, html {
 body {
   font-family: $default-font-family;
   color: $font-color;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.16);
   background: $main-color;
   user-select: none;
   /* overflow: hidden; */

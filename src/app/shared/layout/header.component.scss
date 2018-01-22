@@ -11,10 +11,24 @@
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   background: #ffffff;
-  background: -moz-linear-gradient(top, #ffffff 55%, #dddddd 100%);
-  background: -webkit-linear-gradient(top, #ffffff 55%, #dddddd 100%);
-  background: linear-gradient(to bottom, #ffffff 55%, #dddddd 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#dddddd',GradientType=0 );
+  background: -moz-linear-gradient(top, #ffffff 55%, $main-color 100%);
+  background: -webkit-linear-gradient(top, #ffffff 55%, $main-color 100%);
+  background: linear-gradient(to bottom, #ffffff 55%, $main-color 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#{$main-color}', GradientType=0);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.39);
   justify-content: space-between;
+}
+
+.routes {
+  a {
+    text-decoration: underline;
+    color: #a4647c;
+    padding: 5px;
+    &.active {
+      background: #a6657d;
+      color: white;
+      text-decoration: none;
+    }
+  }
+
 }

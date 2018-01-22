@@ -3,19 +3,36 @@ import {NgModule} from '@angular/core';
 import {HeaderComponent, FooterComponent} from './shared/layout';
 import {AppRouter} from './app.router';
 import {AppComponent} from './app.component';
+import {ApiService} from './shared/services/api.service';
+import {AuthService} from './shared/services/auth.service';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {JwtService} from './shared/services/jwt.service';
+import {AuthInterceptor} from './shared/interceptors/auth.interceptor';
+import {AuthDirective} from './shared/directives/auth.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AuthDirective
   ],
   imports: [
     BrowserModule,
-    AppRouter
+    AppRouter,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ApiService,
+    AuthService,
+    JwtService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
