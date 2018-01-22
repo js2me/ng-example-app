@@ -12,6 +12,4 @@ export const AppRouter: ModuleWithProviders = RouterModule.forRoot([
         path: 'about',
         loadChildren: 'app/about/about.module#AboutModule'
     }
-], {
-        enableTracing: !environment.production
-    });
+]);

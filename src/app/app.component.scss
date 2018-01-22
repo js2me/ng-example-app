@@ -1,0 +1,8 @@
+@import "~sass/variables";
+
+:host{
+  display: block;
+  height:calc(100% - #{$header-height});
+  width: 100%;
+}
+

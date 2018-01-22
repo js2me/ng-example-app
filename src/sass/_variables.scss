@@ -1,5 +1,5 @@
 $main-color: rgb(247, 247, 246);
-$second-color: #7883ff;
+$second-color: #a6657d;
 $third-color: rgb(95, 103, 202);
 $dark-color: rgb(61, 67, 136);
 
@@ -17,3 +17,15 @@ $fantastic-text-shadow: 0 0px 2px, 0 2px 6px rgba(0, 0, 0, 0.41);
 
 $title-font-family: 'Roboto Slab', cursive;
 $default-font-family: 'Comfortaa', cursive;
+
+//height, width, position
+$header-height:56px;
+$footer-height:40px;
+
+
+//margins
+$_horizontal-margin: 15%;
+
+$header-layout-margin: 0 $_horizontal-margin;
+$footer-layout-margin: 0 $_horizontal-margin;
+$page-wrapper-margin: $header-height $_horizontal-margin 0;
