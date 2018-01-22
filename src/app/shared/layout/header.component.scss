@@ -1,0 +1,20 @@
+@import '~sass/variables';
+
+:host {
+  height: $header-height;
+  position: fixed;
+  width: 70%;
+  top: 0;
+  padding: calc(#{$header-height} / 3) 1%;
+  display: flex;
+  margin: $header-layout-margin;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background: #ffffff;
+  background: -moz-linear-gradient(top, #ffffff 55%, #dddddd 100%);
+  background: -webkit-linear-gradient(top, #ffffff 55%, #dddddd 100%);
+  background: linear-gradient(to bottom, #ffffff 55%, #dddddd 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#dddddd',GradientType=0 );
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.39);
+  justify-content: space-between;
+}
