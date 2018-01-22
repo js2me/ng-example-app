@@ -80,7 +80,7 @@ button.close {
   }
 }
 
-
+//adaptive layout-header, layout-footer and page content wrapper(.page)
 @media only screen and (max-width: 1190px) {
   $new_horizontal_margin: $_horizontal-margin - 5%;
   layout-footer, layout-header {
@@ -93,7 +93,6 @@ button.close {
     width: 100% - ($new_horizontal_margin * 2) !important;
   }
 }
-
 @media only screen and (max-width: 890px) {
   $new_horizontal_margin: 15px;
   layout-footer, layout-header {
@@ -106,7 +105,7 @@ button.close {
     width: calc(100% - #{($new_horizontal_margin * 2)}) !important;
   }
 }
-@media only screen and (max-width: 890px) {
+@media only screen and (max-width: 740px) {
   body{
     font-size: 14px;
   }
@@ -121,6 +120,8 @@ button.close {
     width: calc(100% - #{($new_horizontal_margin * 2)}) !important;
   }
 }
+
+
 /* Custom, iPhone Retina */
 @media only screen and (min-width: 320px) {
 }
