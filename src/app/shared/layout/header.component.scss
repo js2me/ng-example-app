@@ -3,7 +3,7 @@
 :host {
   height: $header-height;
   position: fixed;
-  width: 70%;
+  width: 100% - ($_horizontal-margin * 2);
   top: 0;
   padding: calc(#{$header-height} / 3) 1%;
   display: flex;
@@ -20,10 +20,20 @@
 }
 
 .routes {
+  .auth-routes {
+    display: inline-block;
+  }
   a {
     text-decoration: underline;
     color: #a4647c;
     padding: 5px;
+    cursor: pointer;
+    &.logout{
+      color: #e04f4f;
+    }
+    &.login{
+      color:#36b536;
+    }
     &.active {
       background: #a6657d;
       color: white;

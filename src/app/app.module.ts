@@ -9,6 +9,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {JwtService} from './shared/services/jwt.service';
 import {AuthInterceptor} from './shared/interceptors/auth.interceptor';
 import {AuthDirective} from './shared/directives/auth.directive';
+import {UserService} from './shared/services/user.service';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import {AuthDirective} from './shared/directives/auth.directive';
     ApiService,
     AuthService,
     JwtService,
+    UserService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

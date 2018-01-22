@@ -22,7 +22,8 @@ body {
   left: 0;
   top: 0;
 }
-*, body *{
+
+*, body * {
   -ms-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -49,25 +50,77 @@ button.close {
   cursor: pointer;
 }
 
+.separator {
+  margin: 0 5px;
+  color: black;
+  text-shadow: none;
+  &:before {
+    display: inline-block;
+    content: '|';
+  }
+}
+
 .page {
-  margin: $page-wrapper-margin;
+  margin: $header-height $_horizontal-margin 0;
   min-height: calc(100% - #{$footer-height});
   padding: 24px 0;
-  .title {
-    text-align: center;
-    margin-bottom: 24px;
-    span {
-      font-size: 26px;
-      background: $second-color;
-      color: $second-font-color;
-      padding: 2px 5px;
-      text-shadow: $fantastic-text-shadow;
-      font-family: $title-font-family;
+  > *:nth-child(2) {
+    > .title {
+      text-align: center;
+      margin-bottom: 24px;
+      span {
+        font-size: 26px;
+        background: $second-color;
+        color: $second-font-color;
+        padding: 2px 5px;
+        text-shadow: $fantastic-text-shadow;
+        font-family: $title-font-family;
+      }
     }
   }
 }
 
 
+@media only screen and (max-width: 1190px) {
+  $new_horizontal_margin: $_horizontal-margin - 5%;
+  layout-footer, layout-header {
+    margin: 0 $new_horizontal_margin !important;
+  }
+  .page{
+    margin: $header-height $new_horizontal_margin 0 !important;
+  }
+  layout-header {
+    width: 100% - ($new_horizontal_margin * 2) !important;
+  }
+}
+
+@media only screen and (max-width: 890px) {
+  $new_horizontal_margin: 15px;
+  layout-footer, layout-header {
+    margin: 0 $new_horizontal_margin !important;
+  }
+  .page{
+    margin: $header-height $new_horizontal_margin 0 !important;
+  }
+  layout-header {
+    width: calc(100% - #{($new_horizontal_margin * 2)}) !important;
+  }
+}
+@media only screen and (max-width: 890px) {
+  body{
+    font-size: 14px;
+  }
+  $new_horizontal_margin: 5px;
+  layout-footer, layout-header {
+    margin: 0 $new_horizontal_margin !important;
+  }
+  .page{
+    margin: $header-height $new_horizontal_margin 0 !important;
+  }
+  layout-header {
+    width: calc(100% - #{($new_horizontal_margin * 2)}) !important;
+  }
+}
 /* Custom, iPhone Retina */
 @media only screen and (min-width: 320px) {
 }

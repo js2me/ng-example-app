@@ -1,0 +1,29 @@
+<div class="title">
+  <span>Your account (<span>{{user.name}}</span>)</span>
+</div>
+<div class="user-info">
+  <div class="main-info">
+    <div class="title">Profile</div>
+    <label>
+      Name: <span>{{user.first_name}}</span>
+    </label>
+    <label>
+      Surname: <span>{{user.last_name}}</span>
+    </label>
+    <label>
+      Middle name: <span>{{user.middle_name}}</span>
+    </label>
+  </div>
+  <div class="organization-info">
+    <div class="title">Organisation</div>
+    <label>
+      Official Name: <span>{{user.organization.official_name}}</span>
+    </label>
+    <label>
+      Address: <span>{{user.organization.address}}</span>
+    </label>
+    <label>
+      Organization Type: <span>{{user.organization.org_type}}</span>
+    </label>
+  </div>
+</div>

@@ -8,7 +8,6 @@ export class JwtService {
 
   constructor() {
     const cachedToken = localStorage.getItem('token');
-    debugger;
     if (cachedToken) {
       this.tokenSubject.next(cachedToken);
     }
@@ -41,6 +40,7 @@ export class JwtService {
 
   destroyToken() {
     this.tokenSubject.next('');
+    localStorage.removeItem('token');
   }
 
 

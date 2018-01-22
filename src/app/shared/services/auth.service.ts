@@ -5,13 +5,14 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import 'rxjs/add/operator/map';
 import {JwtService} from './jwt.service';
 import {Router} from '@angular/router';
+import {UserService} from './user.service';
 
 @Injectable()
 export class AuthService {
   private isAuthSubject = new BehaviorSubject<boolean>(false);
   public isAuth = this.isAuthSubject.asObservable();
 
-  constructor(private api: ApiService, private jwt: JwtService, private router: Router) {
+  constructor(private api: ApiService, private jwt: JwtService, private router: Router, private userService: UserService) {
     if(this.jwt.getToken()){
       this.isAuthSubject.next(true);
     }
@@ -23,9 +24,9 @@ export class AuthService {
 
   login(loginForm: LoginModel): Observable<any> {
     return this.api.post('/auth/login', loginForm).map((data: any) => {
-      console.log('success login', data);
       this.jwt.setToken(data.token);
       this.isAuthSubject.next(true);
+      this.userService.getCurrentUser();
       return data;
     }, error => {
       console.log(error);
@@ -36,6 +37,7 @@ export class AuthService {
   logout() {
     this.jwt.destroyToken();
     this.isAuthSubject.next(false);
+    this.userService.clearUserData();
     this.router.navigate(['login']);
   }
 

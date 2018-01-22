@@ -1,0 +1,18 @@
+:host{
+}
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 0;
+  > div {
+    flex: 1 1 100%;
+    .title {
+      font-size: 20px;
+      text-decoration: underline;
+      padding-bottom: 20px;
+    }
+    label{
+      display:block;
+    }
+  }
+}

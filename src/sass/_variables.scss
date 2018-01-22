@@ -8,6 +8,7 @@ $disabled-color2:rgb(150, 150, 150);
 
 
 $bad-color: #ff4344;
+$positive-color: #5aff5b;
 
 $font-color: #000000;
 $disabled-font-color1: rgb(239, 239, 239);
@@ -26,6 +27,7 @@ $footer-height:40px;
 //margins
 $_horizontal-margin: 15%;
 
+
 $header-layout-margin: 0 $_horizontal-margin;
 $footer-layout-margin: 0 $_horizontal-margin;
-$page-wrapper-margin: $header-height $_horizontal-margin 0;
+

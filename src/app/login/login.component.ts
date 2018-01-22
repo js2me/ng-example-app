@@ -30,9 +30,8 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.loginForm.status === 'VALID') {
-      this.authService.login(this.loginForm.value).subscribe(data => {
-        console.log('Wellcome ', data);
-        this.router.navigate(['/']);
+      this.authService.login(this.loginForm.value).subscribe(() => {
+        this.router.navigate(['account']);
       }, error => {
         console.log(error);
         this.loginForm.reset();
