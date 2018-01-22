@@ -1,5 +1,7 @@
 <label class="app-name">MyAngularApp</label>
 <div class="routes">
-  <a routerLink="/" routerLinkActive="active" routerLinkActiveOptions="{exact:true}">Home</a>
+  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
   <a routerLink="/about" routerLinkActive="active">About</a>
+  <a routerLink="/login" routerLinkActive="active" *showAuth="false">Sign in</a>
+  <a *showAuth="true" (click)="logout()">Sign out</a>
 </div>

@@ -1,0 +1,16 @@
+<div class="title">
+  <span>Sign In</span>
+</div>
+<form novalidate [formGroup]="loginForm" (submit)="login()" class="form login-form">
+  <label>
+    Username
+    <input type="text" formControlName="name">
+  </label>
+  <label>
+    Password
+    <input type="password" formControlName="password">
+  </label>
+  <div class="form-actions">
+    <button class="apply" type="submit">login</button>
+  </div>
+</form>
