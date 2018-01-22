@@ -8,7 +8,19 @@ import {UserModel} from '../shared/models/user.model';
   styleUrls: ['./account.component.scss']
 })
 export class AccountComponent implements OnInit {
-  user: UserModel;
+
+  user: UserModel = {
+    name: '',
+    first_name: '',
+    last_name: '',
+    middle_name: '',
+    organization: {
+      org_type: '',
+      address: '',
+      official_name: '',
+      allowed_routes: ''
+    }
+  };
 
   constructor(private userService: UserService) {
   }

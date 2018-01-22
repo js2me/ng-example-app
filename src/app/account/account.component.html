@@ -1,7 +1,7 @@
-<div class="title">
+<div class="title" *ngIf="user">
   <span>Your account (<span>{{user.name}}</span>)</span>
 </div>
-<div class="user-info">
+<div class="user-info" *ngIf="user">
   <div class="main-info">
     <div class="title">Profile</div>
     <label>

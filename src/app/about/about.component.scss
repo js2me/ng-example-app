@@ -1,10 +1,18 @@
-p{
-    background: red;
-    font-size: 26px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    position: relative;
-    left:0;
-    top:0;
-    display: block;
-    color:white;
+@import "~sass/variables";
+
+.content{
+  padding:5px 5%;
+  text-align: justify;
+  code{
+    background: rgb(121, 121, 156);
+    color: $second-font-color;
+    padding: 0 4px;
+  }
+  a{
+    &.user-link{
+      text-decoration: none;
+      color: rgb(56, 88, 181);
+      font-weight: bold;
+    }
+  }
 }
