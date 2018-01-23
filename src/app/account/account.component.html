@@ -1,29 +1,21 @@
-<div class="title" *ngIf="user">
-  <span>Your account (<span>{{user.name}}</span>)</span>
+<div class="title">
+  <span>Your account</span>
 </div>
-<div class="user-info" *ngIf="user">
+<div class="user-info">
   <div class="main-info">
     <div class="title">Profile</div>
+    <img src="{{user.image || '../../assets/default-user-photo.png'}}" alt="" class="profile-image">
     <label>
-      Name: <span>{{user.first_name}}</span>
+      Username: <span>{{user.username}}</span>
     </label>
     <label>
-      Surname: <span>{{user.last_name}}</span>
+      Email: <span>{{user.email}}</span>
     </label>
     <label>
-      Middle name: <span>{{user.middle_name}}</span>
-    </label>
-  </div>
-  <div class="organization-info">
-    <div class="title">Organisation</div>
-    <label>
-      Official Name: <span>{{user.organization.official_name}}</span>
+      Created at: <span>{{user.createdAt | date:'dd.MM.yyyy HH:mm'}}</span>
     </label>
     <label>
-      Address: <span>{{user.organization.address}}</span>
-    </label>
-    <label>
-      Organization Type: <span>{{user.organization.org_type}}</span>
+      Bio: <span>{{user.bio}}</span>
     </label>
   </div>
 </div>

@@ -12,3 +12,11 @@
     color: $color;
   }
 }
+
+@mixin block-button(){
+  background: transparent;
+  border-color: #aaa;
+  color: #aaa;
+  cursor: not-allowed;
+  user-select: none;
+}

@@ -8,13 +8,13 @@ export class ApiService {
   constructor(private http: HttpClient) {
   }
 
-  get(url, body?): Observable<ArrayBuffer | Object> {
+  get(url, body?): Observable<any> {
     return this.http.get(`${environment.api_url}${url}`, body);
   }
-  post(url, body?): Observable<ArrayBuffer | Object> {
+  post(url, body?): Observable<any> {
     return this.http.post(`${environment.api_url}${url}`, body);
   }
-  put(url, body?): Observable<ArrayBuffer | Object> {
+  put(url, body?): Observable<any> {
     return this.http.put(`${environment.api_url}${url}`, body);
   }
 }

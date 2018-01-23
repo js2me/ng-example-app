@@ -19,7 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "",
       "styles": [
-        "sass/styles.scss"
+        "sass/styles.scss",
+        "sass/buttons.scss"
       ],
       "stylePreprocessorOptions": {
         "includePaths": [

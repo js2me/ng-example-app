@@ -23,10 +23,10 @@ export class AuthService {
   }
 
   login(loginForm: LoginModel): Observable<any> {
-    return this.api.post('/auth/login', loginForm).map((data: any) => {
-      this.jwt.setToken(data.token);
+    return this.api.post('/users/login', {user: loginForm}).map((data: any) => {
+      this.jwt.setToken(data.user.token);
       this.isAuthSubject.next(true);
-      this.userService.getCurrentUser();
+      this.userService.setCurrentUser(data.user);
       return data;
     }, error => {
       console.log(error);

@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api_url: 'http://noapi.info/api/v1.0'
+  api_url: 'https://conduit.productionready.io/api'
 };

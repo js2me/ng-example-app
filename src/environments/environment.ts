@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  api_url: 'http://noapi.info/api/v1.0'
+  api_url: 'https://conduit.productionready.io/api'
 };

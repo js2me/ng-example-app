@@ -13,6 +13,9 @@
       text-decoration: none;
       color: rgb(56, 88, 181);
       font-weight: bold;
+      &:hover, &:active{
+        text-decoration: underline;
+      }
     }
   }
 }

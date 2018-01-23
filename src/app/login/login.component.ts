@@ -11,11 +11,11 @@ import {Router} from '@angular/router';
 export class LoginComponent implements OnInit {
 
   loginForm = this.formBuilder.group({
-    name: ['',
+    email: ['',
       Validators.compose(
         [
           Validators.required,
-          Validators.pattern('^[a-zA-Z0-9][a-zA-Z0-9_\s\-]*[a-zA-Z0-9](?<![_\s\-]{2,}.*)$')
+          Validators.pattern(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
         ])
     ],
     password: ['', Validators.required]
@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
+
 
 
   login() {

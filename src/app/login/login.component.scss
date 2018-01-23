@@ -1,4 +1,5 @@
 @import "~sass/variables";
+@import "~sass/mixins";
 
 :host{
 
@@ -27,9 +28,9 @@
         font-family: "Comfortaa", cursive;
         &.ng-invalid{
           &:not(.ng-pristine){
-            box-shadow: 0 1px 0 0 $bad-color;
-            color: $bad-color;
-            text-shadow: 0 1px 1px $bad-color;
+            box-shadow: 0 1px 0 0 $negative-color;
+            color: $negative-color;
+            text-shadow: 0 1px 1px $negative-color;
           }
         }
         &.ng-valid {
@@ -41,11 +42,8 @@
 
     &.ng-invalid{
       &:not(.ng-pristine){
-        button.apply{
-          opacity: 0.7;
-          background: #aaaaaa;
-          box-shadow: 0 0 0 #aaaaaa;
-          cursor: not-allowed;
+        button.positive{
+          @include block-button();
         }
       }
     }
@@ -55,20 +53,4 @@
     display:flex;
     justify-content: center;
   }
-}
-
-button.apply {
-  padding: 5px;
-  min-width: 128px;
-  font-size: 16px;
-  font-family: $default-font-family;
-  border-radius: 15px;
-  border: none;
-  text-align: center;
-  color: white;
-  background: #75c574;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.53);
-  box-shadow: 0 1px 7px #75c574;
-  transition: all 300ms ease;
-  cursor: pointer;
 }

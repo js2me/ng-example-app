@@ -1,0 +1,36 @@
+@import "~sass/variables";
+
+button {
+  padding: 5px;
+  min-width: 128px;
+  font-size: 16px;
+  font-family: $default-font-family;
+  border-radius: 15px;
+  border: 1px solid $neutral-color;
+  text-align: center;
+  color: $neutral-color;
+  background: transparent;
+  transition: all 300ms ease;
+  cursor: pointer;
+  &:active{
+    background: $neutral-color;
+    color: $second-font-color;
+  }
+}
+
+button.positive {
+  border-color: $positive-color;
+  color: $positive-color;
+  &:active{
+    background: $positive-color;
+    color: $second-font-color;
+  }
+}
+button.negative {
+  border-color: $negative-color;
+  color: $negative-color;
+  &:active{
+    background: $negative-color;
+    color: $negative-color;
+  }
+}
