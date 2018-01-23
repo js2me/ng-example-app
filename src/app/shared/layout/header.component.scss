@@ -20,8 +20,15 @@
 }
 
 .routes {
-  .auth-routes {
+  .auth-routes,.no-auth-routes {
     display: inline-block;
+  }
+  .no-auth-routes{
+    a{
+      &:not(.active){
+        color:#36b536;
+      }
+    }
   }
   a {
     text-decoration: underline;
@@ -30,9 +37,6 @@
     cursor: pointer;
     &.logout{
       color: #e04f4f;
-    }
-    &.login{
-      color:#36b536;
     }
     &.active {
       background: #a6657d;

@@ -1,0 +1,24 @@
+<div class="title">
+  <span>Become a new user</span>
+</div>
+<form novalidate [formGroup]="registrationForm" (submit)="login()" class="form registration-form">
+  <label>
+    Username
+    <input type="text" formControlName="username">
+  </label>
+  <label>
+    Email
+    <input type="text" formControlName="email">
+  </label>
+  <label>
+    Password
+    <input type="password" formControlName="password">
+  </label>
+  <label>
+    Conform password
+    <input type="password" formControlName="confirmPassword">
+  </label>
+  <div class="form-actions">
+    <button class="positive" type="submit">sign up</button>
+  </div>
+</form>

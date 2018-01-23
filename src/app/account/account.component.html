@@ -4,7 +4,8 @@
 <div class="user-info">
   <div class="main-info">
     <div class="title">Profile</div>
-    <img src="{{user.image || '../../assets/default-user-photo.png'}}" alt="" class="profile-image">
+    <img class="profile-image" *ngIf="user.image; then defaultUserImage" src="{{user.umage}}" alt="">
+    <img class="profile-image" #defaultUserImage src="../../assets/default-user-photo.png" alt="">
     <label>
       Username: <span>{{user.username}}</span>
     </label>

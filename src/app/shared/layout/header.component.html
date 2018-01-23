@@ -1,6 +1,6 @@
 <label class="app-name">MyAngularApp
-  <span class="user-fullname" *ngIf="user !== null">
-    <span class="separator"></span> {{user.last_name}} {{user.first_name}}
+  <span class="user-fullname" *ngIf="isAuth">
+    <span class="separator"></span> {{user.username}}
   </span>
 </label>
 <div class="routes">
@@ -9,7 +9,11 @@
   <a routerLink="/account" routerLinkActive="active" *showAuth="true">Account</a>
   <div class="auth-routes">
     <span class="separator"></span>
-    <a routerLink="/login" routerLinkActive="active" *showAuth="false" class="login">Sign in</a>
+    <div class="no-auth-routes" *showAuth="false">
+      <a routerLink="/login" routerLinkActive="active">Sign in</a>
+      /
+      <a routerLink="/registration" routerLinkActive="active">Sign up</a>
+    </div>
     <a *showAuth="true" (click)="logout()" class="logout">Sign out</a>
   </div>
 </div>

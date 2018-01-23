@@ -20,7 +20,8 @@
       "prefix": "",
       "styles": [
         "sass/styles.scss",
-        "sass/buttons.scss"
+        "sass/buttons.scss",
+        "sass/forms.scss"
       ],
       "stylePreprocessorOptions": {
         "includePaths": [

@@ -1,0 +1,54 @@
+@import "~sass/variables";
+@import "~sass/mixins";
+
+.form{
+  width: 346px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  background: transparent;
+  text-align: left;
+  color: #a5667e;
+  text-shadow: 0 1px 1px rgba(166, 101, 125, 0.51);
+  label{
+    padding: 5px 0 20px;
+    input{
+      display: block;
+      width: 100%;
+      padding: 10px 0 5px;
+      font-size: 16px;
+      border: none;
+      box-shadow: 0 1px 0 0 #9d657a;
+      background: transparent;
+      color: #a6657d;
+      text-shadow: 0 1px 1px #a5657d;
+      font-family: "Comfortaa", cursive;
+      &.ng-invalid{
+        &:not(.ng-pristine){
+          box-shadow: 0 1px 0 0 $negative-color;
+          color: $negative-color;
+          text-shadow: 0 1px 1px $negative-color;
+        }
+      }
+      &.ng-valid {
+        color: #2aa750 !important;
+        text-shadow: 0 1px 1px #47d071 !important;
+      }
+    }
+  }
+
+  &.ng-invalid{
+    &:not(.ng-pristine){
+      button.positive{
+        @include block-button();
+      }
+    }
+  }
+
+
+  .form-actions{
+    display:flex;
+    justify-content: center;
+  }
+}

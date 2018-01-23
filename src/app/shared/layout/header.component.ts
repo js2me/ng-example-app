@@ -9,16 +9,16 @@ import {UserModel} from '../models/user.model';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  user: (UserModel | null) =null;
+  isAuth: boolean = false;
+  user: UserModel;
 
 
   constructor(private auth: AuthService, private userService: UserService) {
   }
 
   ngOnInit() {
-    this.userService.userData.subscribe((data: UserModel) => {
-      this.user = data;
-    })
+    this.auth.isAuth.subscribe((_isAuth: boolean) => this.isAuth = _isAuth);
+    this.userService.userData.subscribe((data: UserModel) => this.user = data);
   }
 
 

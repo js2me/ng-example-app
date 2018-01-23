@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 import {JwtService} from './jwt.service';
 import {Router} from '@angular/router';
 import {UserService} from './user.service';
+import {RegisterModel} from '../models/register.model';
 
 @Injectable()
 export class AuthService {
@@ -22,15 +23,17 @@ export class AuthService {
     return this.jwt.getToken();
   }
 
-  login(loginForm: LoginModel): Observable<any> {
-    return this.api.post('/users/login', {user: loginForm}).map((data: any) => {
-      this.jwt.setToken(data.user.token);
-      this.isAuthSubject.next(true);
-      this.userService.setCurrentUser(data.user);
-      return data;
-    }, error => {
+  login(user: LoginModel): Observable<any> {
+    return this.api.post('/users/login', {user}).map(this.signIn.bind(this), error => {
       console.log(error);
     });
+  }
+
+  private signIn(data:any){
+    this.jwt.setToken(data.user.token);
+    this.isAuthSubject.next(true);
+    this.userService.setCurrentUser(data.user);
+    return data;
   }
 
 
@@ -39,6 +42,12 @@ export class AuthService {
     this.isAuthSubject.next(false);
     this.userService.clearUserData();
     this.router.navigate(['login']);
+  }
+
+  registerNewUser(user: RegisterModel): Observable<any>{
+    return this.api.post('/users',{user}).map(this.signIn.bind(this), error=>{
+      console.log(error);
+    });
   }
 
 }
