@@ -4,7 +4,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import {UserModel} from '../models/user.model';
 @Injectable()
 export class UserService {
-  private userSubject = new BehaviorSubject<UserModel>(this.getEmptyUserData());
+  public userSubject = new BehaviorSubject<UserModel>(this.getEmptyUserData());
 
   public userData = this.userSubject.asObservable();
 
@@ -42,6 +42,10 @@ export class UserService {
       updatedAt: '',
       username: ''
     };
+  }
+
+  public getCurrentUserData(): UserModel {
+    return this.userSubject.getValue();
   }
 
 }

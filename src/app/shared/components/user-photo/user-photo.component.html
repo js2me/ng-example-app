@@ -1,0 +1,9 @@
+<div class="user-photo" [ngStyle]="{'width':width,'height':height}">
+<div *ngIf="imageUrl; then userImageBlock else defaultImageBlock"></div>
+  <ng-template #userImageBlock>
+    <img src="{{imageUrl}}" alt="">
+  </ng-template>
+  <ng-template #defaultImageBlock>
+    <img src="../../../../assets/default-user-photo.png" alt="">
+  </ng-template>
+</div>

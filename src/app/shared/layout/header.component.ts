@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, NgZone, OnInit} from '@angular/core';
 import {AuthService} from '../services/auth.service';
 import {UserService} from '../services/user.service';
 import {UserModel} from '../models/user.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'layout-header',
@@ -13,16 +14,25 @@ export class HeaderComponent implements OnInit {
   user: UserModel;
 
 
-  constructor(private auth: AuthService, private userService: UserService) {
+  constructor(private auth: AuthService, private userService: UserService, private ngZone: NgZone, private router: Router) {
   }
 
   ngOnInit() {
-    this.auth.isAuth.subscribe((_isAuth: boolean) => this.isAuth = _isAuth);
-    this.userService.userData.subscribe((data: UserModel) => this.user = data);
+    this.ngZone.runOutsideAngular(() => {
+      this.auth.isAuth.subscribe((_isAuth: boolean) => this.ngZone.run(() => {
+        this.isAuth = _isAuth;
+      }));
+      this.userService.userData.subscribe((data: UserModel) => this.ngZone.run(() => {
+        this.user = data
+      }));
+    })
   }
 
 
   logout() {
-    this.auth.logout();
+    this.ngZone.run(() => {
+      this.auth.logout();
+      this.router.navigate(['login']);
+    })
   }
 }

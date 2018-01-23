@@ -10,6 +10,8 @@ import {JwtService} from './shared/services/jwt.service';
 import {AuthInterceptor} from './shared/interceptors/auth.interceptor';
 import {AuthDirective} from './shared/directives/auth.directive';
 import {UserService} from './shared/services/user.service';
+import {UserPhotoComponent} from './shared/components/user-photo/user-photo.component';
+import {SharedModule} from './shared/shared.module';
 
 
 @NgModule({
@@ -21,8 +23,9 @@ import {UserService} from './shared/services/user.service';
   ],
   imports: [
     BrowserModule,
+    SharedModule,
     AppRouter,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     ApiService,
@@ -34,6 +37,9 @@ import {UserService} from './shared/services/user.service';
       useClass: AuthInterceptor,
       multi: true
     }
+  ],
+  exports:[
+    UserPhotoComponent
   ],
   bootstrap: [AppComponent]
 })

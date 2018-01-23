@@ -1,0 +1,34 @@
+:host{
+  .user-photo{
+    position: relative;
+    vertical-align: middle;
+    clip-path: circle(50% at center);
+    transition: all 550ms ease-in-out;
+    display: inline-block;
+    &:after{
+      content:'';
+      width: 100%;
+      top: 0;
+      left: 0;
+      position: absolute;
+      height: 100%;
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,ffffff+100&0+0,1+100 */
+      background: -moz-linear-gradient(top, rgba(255,255,255,0) 70%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top, rgba(255,255,255,0) 70%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom, rgba(255,255,255,0) 70%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e5799', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+
+    }
+    &:hover{
+      clip-path: circle(36% at center);
+      transition: all 350ms ease;
+      transform: scale(1.4);
+    }
+
+    img {
+      width: inherit;
+      height: inherit;
+      background-size: cover;
+    }
+  }
+}

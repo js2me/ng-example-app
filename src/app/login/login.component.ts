@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, NgZone, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {AuthService} from '../shared/services/auth.service';
 import {Router} from '@angular/router';
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     ])]
   });
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router, private ngZone: NgZone) {
   }
 
   ngOnInit() {
@@ -35,12 +35,19 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.loginForm.status === 'VALID') {
-      this.authService.login(this.loginForm.value).subscribe(() => {
-        this.router.navigate(['/']);
-      }, error => {
-        console.log(error);
-        this.loginForm.reset();
-      });
+        this.authService.login(this.loginForm.value).subscribe(() =>
+          this.router.navigate(['/']), error => {
+          console.log(error);
+          this.loginForm.reset();
+        });
+    // this.ngZone.runOutsideAngular(()=>{
+    //     this.authService.login(this.loginForm.value).subscribe(() => this.ngZone.run(()=>{
+    //       this.router.navigate(['/']);
+    //     }), error => this.ngZone.run(()=>{
+    //       console.log(error);
+    //       this.loginForm.reset();
+    //     }));
+    // });
     }
   }
 

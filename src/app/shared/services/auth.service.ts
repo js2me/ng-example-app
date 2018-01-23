@@ -13,7 +13,7 @@ export class AuthService {
   private isAuthSubject = new BehaviorSubject<boolean>(false);
   public isAuth = this.isAuthSubject.asObservable();
 
-  constructor(private api: ApiService, private jwt: JwtService, private router: Router, private userService: UserService) {
+  constructor(private api: ApiService, private jwt: JwtService, private userService: UserService) {
     if(this.jwt.getToken()){
       this.isAuthSubject.next(true);
     }
@@ -41,7 +41,6 @@ export class AuthService {
     this.jwt.destroyToken();
     this.isAuthSubject.next(false);
     this.userService.clearUserData();
-    this.router.navigate(['login']);
   }
 
   registerNewUser(user: RegisterModel): Observable<any>{
