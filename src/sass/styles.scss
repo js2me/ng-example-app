@@ -8,6 +8,20 @@ body, html {
   padding: 0;
 }
 
+
+
+.fork-me-on-github{
+  position: fixed;
+  top: 0;
+  left: 0;
+  border: 0;
+  width: 149px;
+  height: 149px;
+  background-size: cover;
+  background-image: url(../assets/fork-me-github.png);
+}
+
+
 body {
   font-family: $default-font-family;
   color: $font-color;
@@ -20,7 +34,7 @@ body {
   position: absolute;
   left: 0;
   top: 0;
-  font-size:16px;
+  font-size: 16px;
 }
 
 *, body * {
@@ -36,7 +50,7 @@ header, menu {
   display: initial;
 }
 
-button, input {
+button, input{
   outline: none;
 }
 
@@ -51,9 +65,10 @@ button.close {
 }
 
 .page {
-  margin: $header-height $_horizontal-margin 0;
+  margin: $header-height $_horizontal-margin $footer-height;
   min-height: calc(100% - #{$footer-height});
   padding: 24px 0;
+  position: relative;
   > *:nth-child(2) {
     > .title {
       text-align: center;
@@ -68,6 +83,27 @@ button.close {
       }
     }
   }
+  &:after {
+    content: 'Thanks for watching !';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin-bottom: -($footer-height/2);
+    color: #484848;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.32), 0 1px 1px rgba(0, 0, 0, 0.32);
+    opacity: .4;
+  }
+}
+
+.separator {
+  margin: 0 5px;
+  color: $neutral-color;
+  text-shadow: none;
+  &:before {
+    display: inline-block;
+    content: '|';
+  }
 }
 
 //adaptive layout-header, layout-footer and page content wrapper(.page)
@@ -76,41 +112,42 @@ button.close {
   layout-footer, layout-header {
     margin: 0 $new_horizontal_margin !important;
   }
-  .page{
-    margin: $header-height $new_horizontal_margin 0 !important;
+  .page {
+    margin: $header-height $new_horizontal_margin $footer-height !important;
   }
-  layout-header {
+  layout-header,layout-footer {
     width: 100% - ($new_horizontal_margin * 2) !important;
   }
 }
+
 @media only screen and (max-width: 890px) {
   $new_horizontal_margin: 15px;
   layout-footer, layout-header {
     margin: 0 $new_horizontal_margin !important;
   }
-  .page{
-    margin: $header-height $new_horizontal_margin 0 !important;
+  .page {
+    margin: $header-height $new_horizontal_margin $footer-height !important;
   }
-  layout-header {
+  layout-header,layout-footer {
     width: calc(100% - #{($new_horizontal_margin * 2)}) !important;
   }
 }
+
 @media only screen and (max-width: 740px) {
-  body{
+  body {
     font-size: 14px;
   }
   $new_horizontal_margin: 5px;
   layout-footer, layout-header {
     margin: 0 $new_horizontal_margin !important;
   }
-  .page{
-    margin: $header-height $new_horizontal_margin 0 !important;
+  .page {
+    margin: $header-height $new_horizontal_margin $footer-height !important;
   }
-  layout-header {
+  layout-header,layout-footer {
     width: calc(100% - #{($new_horizontal_margin * 2)}) !important;
   }
 }
-
 
 /* Custom, iPhone Retina */
 @media only screen and (min-width: 320px) {
@@ -131,6 +168,3 @@ button.close {
 /* Large Devices, Wide Screens */
 @media only screen and (min-width: 1200px) {
 }
-
-
-

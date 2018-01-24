@@ -4,10 +4,14 @@
 :host{
   height:$footer-height;
   margin: $footer-layout-margin;
-  position: relative;
+  transition: bottom 350ms linear;
+  position: fixed;
+  width: 70%;
+  bottom: -10%;
+  left:0;
   padding: calc(#{$footer-height} / 3) 1%;
   display: flex;
-  @include linear-gradient-background(#ffffff, 55%, $common-color1, 100%);
+  @include linear-gradient-background($common-color1, 10%, #ffffff, 65%);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.39);
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
@@ -29,6 +33,11 @@
       vertical-align: sub;
       background-image: url('../../../assets/github.ico');
     }
+  }
+
+
+  &.show{
+    bottom: 0;
   }
 }
 
