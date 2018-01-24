@@ -24,10 +24,11 @@ export class HeaderComponent implements OnInit {
         document.getElementById('menu-button').addEventListener('click', ()=>this.ngZone.run(()=>{
           this.menuShowed = !this.menuShowed;
         }));
-        for(let a:Element of document.querySelectorAll('.menu a')){
-          a.addEventListener('click',()=>this.ngZone.run(()=>{
+        let links:NodeList = document.querySelectorAll('.menu a');
+        for(let x =0; x< links.length;x++){
+          links[x].addEventListener('click',()=>this.ngZone.run(()=>{
             this.menuShowed = false;
-          }))
+          }));
         }
       }
       this.auth.isAuth.subscribe((_isAuth: boolean) => this.ngZone.run(() => {
