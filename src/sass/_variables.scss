@@ -1,15 +1,26 @@
-$main-color: rgb(247, 247, 246);
-$second-color: #a6657d;
+$main-color: #a6657d;
+
+$common-color1: rgba(227, 227, 227, 1);
+$common-color2: rgba(255, 255, 255, 1);
+
+
+
+
 $third-color: rgb(95, 103, 202);
 $dark-color: rgb(61, 67, 136);
 
 $disabled-color1:rgb(173, 173, 173);
 $disabled-color2:rgb(150, 150, 150);
 
-
+//errors, cancel buttons
 $negative-color: #ff4344;
+//default-buttons, lines
 $neutral-color: #a8a8a8;
+//apply buttons, positive text
 $positive-color: #75c574;
+
+$menu-auth-links-color: #36b536;
+$menu-logout-link-color: #e04f4f;
 
 $font-color: #000000;
 $disabled-font-color1: rgb(239, 239, 239);
@@ -31,4 +42,6 @@ $_horizontal-margin: 15%;
 
 $header-layout-margin: 0 $_horizontal-margin;
 $footer-layout-margin: 0 $_horizontal-margin;
+
+
 

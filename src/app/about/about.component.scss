@@ -1,8 +1,18 @@
 @import "~sass/variables";
-
+:host{
+  user-select: text !important;
+}
 .content{
   padding:5px 5%;
   text-align: justify;
+  &::selection{
+    background: $main-color;
+    color: $second-font-color;
+  }
+  &::-moz-selection {
+    background: $main-color;
+    color: $second-font-color;
+  }
   code{
     background: rgb(121, 121, 156);
     color: $second-font-color;

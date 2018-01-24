@@ -3,17 +3,24 @@
     <span class="separator"></span> <user-photo [imageUrl]="user.image" [height]="'24px'" [width]="'24px'"></user-photo> {{user.username}}
   </span>
 </label>
-<div class="routes">
+<div class="menu-button" id='menu-button'>
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 357 357" style="enable-background:new 0 0 357 357;" xml:space="preserve">
+    <g>
+      <g>
+        <path d="M0,355.5h357v-51H0V355.5z M0,205h357v-51H0V255z M0,0v51h357v-51H0z"></path>
+      </g>
+    </g>
+  </svg>
+</div>
+<div class="menu">
   <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
   <a routerLink="/about" routerLinkActive="active">About</a>
-  <a routerLink="/account" routerLinkActive="active" *showAuth="true">Account</a>
   <div class="auth-routes">
-    <span class="separator"></span>
-    <div class="no-auth-routes" *showAuth="false">
-      <a routerLink="/login" routerLinkActive="active">Sign in</a>
-      /
-      <a routerLink="/registration" routerLinkActive="active">Sign up</a>
-    </div>
-    <a *showAuth="true" (click)="logout()" class="logout">Sign out</a>
+    <a routerLink="/account" routerLinkActive="active">Account</a>
+    <a (click)="logout()" class="logout">Sign out</a>
+  </div>
+  <div class="no-auth-routes">
+    <a routerLink="/login" routerLinkActive="active">Sign in</a>
+    <a routerLink="/registration" routerLinkActive="active">Sign up</a>
   </div>
 </div>

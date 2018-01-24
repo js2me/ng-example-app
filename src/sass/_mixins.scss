@@ -20,3 +20,12 @@
   cursor: not-allowed;
   user-select: none;
 }
+
+
+@mixin linear-gradient-background($_first-color, $percentStart, $_second-color, $percentEnd){
+  background: $_first-color;
+  background: -moz-linear-gradient(top, $_first-color $percentStart, $_second-color $percentEnd);
+  background: -webkit-linear-gradient(top, $_first-color $percentStart, $_second-color $percentEnd);
+  background: linear-gradient(to bottom, $_first-color $percentStart, $_second-color $percentEnd);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$_first-color}', endColorstr='#{$_second-color}', GradientType=0);
+}
