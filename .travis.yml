@@ -1,0 +1,28 @@
+language: node_js
+node_js:
+  - "node"
+
+branches:
+  only:
+  - gh-pages
+  - develop
+
+cache:
+  directories:
+      - "node_modules"
+
+before_install:
+  - npm install -g --silent @angular/cli
+  - npm install -g --silent firebase-tools
+  - npm install
+
+script:
+  - ng build --prod --base-href "/"
+
+deploy:
+  - provider: firebase
+    token:
+      secure: ${FIREBASE_TOKEN}
+    project: "ng-example-app"
+    on:
+      branch: gh-pages
