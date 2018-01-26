@@ -1,13 +1,16 @@
 language: node_js
 node_js:
     - "node"
-    - "8"
 cache:
     directories:
         - "node_modules"
 install:
-    - "npm i ngh @angular/cli -g"
+    - "npm i firebase-tools @angular/cli -g"
     - "npm i"
 script:
-    - ng build --prod --base-href "https://js2me.github.io/ng-example-app/"
-    - angular-cli-ghpages
+    - ng build --prod --base-href "/"
+before_deploy: "echo 'ready?'"
+deploy:
+    provider: firebase
+    token:
+        secure: "$FIREBASE_TOKEN"
