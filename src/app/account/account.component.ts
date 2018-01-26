@@ -1,7 +1,6 @@
-import {ChangeDetectionStrategy,  Component,  OnInit} from '@angular/core';
+import {ChangeDetectionStrategy,  Component,  OnInit, NgZone} from '@angular/core';
 import {UserService} from '../shared/services/user.service';
 import {UserModel} from '../shared/models/user.model';
-import {Observable} from 'rxjs';
 
 @Component({
   selector: 'account-page',
@@ -12,8 +11,12 @@ import {Observable} from 'rxjs';
 export class AccountComponent implements OnInit {
   user: UserModel;
 
-  constructor(private userService: UserService) {
-    this.userService.userData.subscribe(_user=>this.user=_user);
+  constructor(private userService: UserService, private ngZone: NgZone) {
+    this.ngZone.runOutsideAngular(()=>{
+      this.userService.userData.subscribe(_user=>this.ngZone.run(()=>{
+        this.user=_user;
+      }));
+    });
   }
 
   ngOnInit() {

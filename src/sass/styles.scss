@@ -84,15 +84,13 @@ button.close {
     }
   }
   &:after {
-    content: 'Thanks for watching !';
+    content: 'ng-example-app';
     position: absolute;
     bottom: 0;
     width: 100%;
-    text-align: center;
+    text-align: left;
     margin-bottom: -($footer-height/2);
-    color: #484848;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.32), 0 1px 1px rgba(0, 0, 0, 0.32);
-    opacity: .4;
+    color: rgba(0, 0, 0, 0.38);
   }
 }
 
