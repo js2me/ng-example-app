@@ -4,6 +4,8 @@ node_js:
 cache:
     directories:
         - "node_modules"
+before_install:
+    - "echo ${FIREBASE_TOKEN}"
 install:
     - "npm i firebase-tools @angular/cli -g"
     - "npm i"
@@ -13,4 +15,4 @@ before_deploy: "echo 'ready?'"
 deploy:
     provider: firebase
     token:
-        secure: "$FIREBASE_TOKEN"
+        secure: ${FIREBASE_TOKEN}
