@@ -11,8 +11,5 @@ install:
     - "npm i"
 script:
     - ng build --prod --base-href "/"
-before_deploy: "echo 'ready?'"
-deploy:
-    provider: firebase
-    token:
-        secure: ${FIREBASE_TOKEN}
+after_script:
+    - dpl --provider=firebase --token=${FIREBASE_TOKEN} --project=ng-example-app
