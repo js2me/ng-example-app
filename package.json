@@ -13,6 +13,7 @@
   },
   "private": true,
   "dependencies": {
+    "angular-cli-ghpages": "^0.5.2",
     "@angular/animations": "^5.0.0",
     "@angular/common": "^5.0.0",
     "@angular/compiler": "^5.0.0",

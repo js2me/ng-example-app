@@ -10,4 +10,4 @@ install:
     - "npm i"
 script:
     - ng build --prod --base-href "https://js2me.github.io/ng-example-app/"
-    - ngh
+    - angular-cli-ghpages
