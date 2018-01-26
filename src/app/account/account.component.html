@@ -2,9 +2,8 @@
   <span>Your account</span>
 </div>
 <div class="user-info">
+  <user-photo [imageUrl]="user.image" [width]="'256px'" [height]="'256px'"></user-photo>
   <div class="main-info">
-    <div class="title">Profile</div>
-    <user-photo [imageUrl]="user.image"></user-photo>
     <label>
       Username: <span>{{user.username}}</span>
     </label>

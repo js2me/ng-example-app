@@ -1,20 +1,25 @@
 :host{
+  .title{
+    margin-bottom: calc(24px + 2vh + 2vw);
+  }
 }
 .user-info {
-  display: flex;
-  justify-content: space-between;
   padding: 24px 0;
+  /* width: 50%; */
+  margin: auto;
+  text-align: center;
+  position: relative;
+  >* {
+    padding: 0 20px;
+  }
+  .main-info{
+    display: inline-block;
+    text-align: left;
+    margin-bottom: -50px;
+    position: relative;
+    top: 50px;
+  }
   > div {
-    flex: 1 1 100%;
-    .title {
-      font-size: 20px;
-      text-decoration: underline;
-      padding-bottom: 20px;
-    }
-    .profile-image {
-      width: 128px;
-      height: 128px;
-    }
     label{
       display:block;
       padding: 5px 0;

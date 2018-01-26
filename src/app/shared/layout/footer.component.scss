@@ -11,7 +11,7 @@
   left:0;
   padding: calc(#{$footer-height} / 3) 1%;
   display: flex;
-  @include linear-gradient-background($main-color, 50%, $second-color, 100%);
+  @include linear-gradient-background($common-color2, 20%, $common-color1, 100%);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.39);
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
