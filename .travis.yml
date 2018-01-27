@@ -10,7 +10,7 @@ cache:
   directories:
       - "node_modules"
 
-before_install:
+install:
   - npm install -g --silent @angular/cli
   - npm install -g --silent firebase-tools
   - npm install
