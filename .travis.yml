@@ -5,19 +5,17 @@ branches:
   only:
   - gh-pages
   - develop
-
 cache:
   directories:
       - "node_modules"
-
-install:
+before_install:
   - npm install -g --silent @angular/cli
   - npm install -g --silent firebase-tools
   - npm install
-
+install:
+  - npm install
 script:
   - ng build --prod --base-href "/"
-
 deploy:
   - provider: firebase
     token:
