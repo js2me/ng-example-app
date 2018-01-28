@@ -18,5 +18,3 @@ deploy:
     token:
       secure: ${FIREBASE_TOKEN}
     project: "ng-example-app"
-    on:
-      branch: master
