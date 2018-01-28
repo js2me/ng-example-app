@@ -11,7 +11,7 @@ install:
   - npm install
 script:
   - ng build --prod --base-href "/"
-after_install:
+after_script:
   - firebase deploy --token $FIREBASE_TOKEN --non-interactive
 before_deploy:
   - "echo {$FIREBASE_TOKEN}"
