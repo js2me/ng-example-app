@@ -13,9 +13,10 @@ install:
 script:
   - ng build --prod --base-href "/"
 deploy:
+  skip_cleanup: true
   - provider: firebase
     token:
       secure: ${FIREBASE_TOKEN}
     project: "ng-example-app"
     on:
-      branch: gh-pages
+      branch: master
