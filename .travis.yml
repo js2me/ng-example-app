@@ -1,4 +1,7 @@
 language: node_js
+branches:
+  only:
+    - master
 node_js:
   - "node"
 cache:
@@ -7,15 +10,9 @@ cache:
 before_install:
   - npm install -g --silent @angular/cli
   - npm install -g --silent firebase-tools
-  - npm install
 install:
   - npm install
 script:
   - ng build --prod --base-href "/"
-deploy:
-  - provider: firebase
-    token:
-      secure: ${FIREBASE_TOKEN}
-    project: "ng-example-app"
-    on:
-      branch: gh-pages
+after_success:
+  - firebase deploy --token $FIREBASE_TOKEN --non-interactive
