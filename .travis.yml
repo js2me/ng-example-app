@@ -15,6 +15,6 @@ deploy:
   - provider: firebase
     project: $TRAVIS_BRANCH
     token:
-      secure: ${FIREBASE_TOKEN}
+      secure: $FIREBASE_TOKEN
     on:
       all_branches: true
