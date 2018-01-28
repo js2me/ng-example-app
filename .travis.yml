@@ -11,10 +11,12 @@ install:
   - npm install
 script:
   - ng build --prod --base-href "/"
+before_deploy:
+  - "echo ${FIREBASE_TOKEN}"
 deploy:
   - provider: firebase
     project: $TRAVIS_BRANCH
     token:
-      secure: FIREBASE_TOKEN
+      secure: "${FIREBASE_TOKEN}"
     on:
       all_branches: true
