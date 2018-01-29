@@ -78,7 +78,7 @@ button.close {
         background: $main-color;
         color: $second-font-color;
         padding: 2px 5px;
-        text-shadow: $fantastic-text-shadow;
+        text-shadow: 0 0px 2px, 0 2px 6px rgba(0, 0, 0, 0.41);;
         font-family: $title-font-family;
       }
     }

@@ -13,7 +13,7 @@
   }
 }
 
-@mixin block-button(){
+@mixin block-button() {
   background: transparent;
   border-color: #aaa;
   color: #aaa;
@@ -21,8 +21,7 @@
   user-select: none;
 }
 
-
-@mixin linear-gradient-background($_first-color, $percentStart, $_second-color, $percentEnd){
+@mixin linear-gradient-background($_first-color, $percentStart, $_second-color, $percentEnd) {
   background: $_first-color;
   background: -moz-linear-gradient(top, $_first-color $percentStart, $_second-color $percentEnd);
   background: -webkit-linear-gradient(top, $_first-color $percentStart, $_second-color $percentEnd);
