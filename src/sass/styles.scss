@@ -83,15 +83,6 @@ button.close {
       }
     }
   }
-  &:after {
-    content: 'ng-example-app';
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: left;
-    margin-bottom: -($footer-height/2);
-    color: rgba(0, 0, 0, 0.38);
-  }
 }
 
 .separator {

@@ -20,8 +20,8 @@
   &:before {
     max-height: $header-height;
     content: '';
-    background-position-y: center;
-    background-image: url(../../../assets/background-header2.jpg);
+    background-position: center;
+    background-image: url(../../../assets/background-header.jpg);
     filter: grayscale(50%) contrast(100%);
     transition: filter 650ms ease;
     position: absolute;
