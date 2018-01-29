@@ -17,5 +17,6 @@ script:
   - ng build --prod --base-href "/"
 after_success:
   - if [ ${TRAVIS_BRANCH} = "master" ] && [ "${TRAVIS_PULL_REQUEST}" = "false" ];
-    then firebase deploy --token $FIREBASE_TOKEN --non-interactive && ngh;
+    then firebase deploy --token $FIREBASE_TOKEN --non-interactive;
+    then angular-cli-ghpages --repo=https://$GH_TOKEN@github.com/js2me/ng-example-app.git;
     fi
