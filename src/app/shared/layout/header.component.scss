@@ -2,6 +2,7 @@
 @import '~sass/mixins';
 
 :host {
+  $host-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.39);
   height: $header-height;
   position: fixed;
   z-index: 2;
@@ -12,9 +13,31 @@
   margin: $header-layout-margin;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.39);
+  box-shadow: $host-box-shadow;
   justify-content: space-between;
-  @include linear-gradient-background($common-color2, 55%, $common-color1, 100%);
+  color: $second-font-color;
+  text-shadow: 0 1px 1px black;
+  &:before {
+    max-height: $header-height;
+    content: '';
+    background-position-y: center;
+    background-image: url(../../../assets/background-header2.jpg);
+    filter: grayscale(50%) contrast(100%);
+    transition: filter 650ms ease;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    border-radius: inherit;
+    background-size: cover;
+  }
+  &:hover{
+    &:before{
+        filter:grayscale(0%) contrast(120%);
+    }
+  }
   .app-name {
     max-height: $header-height;
   }
@@ -31,7 +54,7 @@
     }
     a {
       text-decoration: underline;
-      color: $main-color;
+      color: $second-font-color;
       padding: 5px;
       cursor: pointer;
       &.logout {
@@ -39,25 +62,12 @@
       }
       &.active {
         background: $main-color;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16);
         color: white;
         text-decoration: none;
       }
     }
 
-  }
-  .menu-button {
-    display: none;
-    width: 28px;
-    height: 28px;
-    right: calc(#{$header-height} / 3);
-    position: absolute;
-    top: calc(#{$header-height} / 4);
-    cursor: pointer;
-    svg {
-      height: inherit;
-      width: inherit;
-      fill: $main-color;
-    }
   }
   .user-short-info{
     outline: none;
@@ -97,22 +107,35 @@
         width: 100%;
       }
       a {
+        text-shadow: none;
+        color: $second-font-color;
         padding: 7% calc(#{$header-height} / 3);
         position: relative;
       }
     }
+
     .menu-button {
       display: block;
+      width: 28px;
+      height: 28px;
+      right: calc(#{$header-height} / 3);
+      position: absolute;
+      top: calc(#{$header-height} / 4);
+      cursor: pointer;
       svg {
+        height: inherit;
+        width: inherit;
+        fill: $common-color2;
+        fill-opacity: .9;
         path {
           transition: d .3s;
         }
       }
     }
     &.menu-showed {
-      height: 100%;
       border-radius: 0;
-      @include linear-gradient-background(rgba($common-color2, 0.94), 33%, rgba($common-color1, 0.94), 80%);
+      height: 100%;
+      @include linear-gradient-background(#766e88, 33%, rgb(125, 124, 139), 80%);
       .menu {
         display: block;
       }
@@ -122,6 +145,9 @@
             d: path('M 357 35.7 L 321.3 0 L 178.5 142.8 L 35.7 0 L 0 35.7 L 142.8 178.5 L 0 321.3 L 35.7 357 L 178.5 214.2 L 321.3 357 L 357 321.3 L 214.2 178.5 Z');
           }
         }
+      }
+      &:before{
+        box-shadow: $host-box-shadow;
       }
     }
 
