@@ -8,12 +8,10 @@
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "deploy": "ng build --prod --base-href \"https://js2me.github.io/ng-example-app/\" && ngh"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
-    "angular-cli-ghpages": "^0.5.2",
     "@angular/animations": "^5.0.0",
     "@angular/common": "^5.0.0",
     "@angular/compiler": "^5.0.0",
@@ -23,8 +21,12 @@
     "@angular/platform-browser": "^5.0.0",
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@angular/router": "^5.0.0",
-    "immutable": "^3.8.2",
+    "@ngx-loading-bar/core": "^1.1.0",
+    "@ngx-loading-bar/http-client": "^1.1.0",
+    "@ngx-loading-bar/router": "^1.1.0",
     "core-js": "^2.4.1",
+    "immutable": "^3.8.2",
+    "ngx-loading-bar": "0.0.9",
     "rxjs": "^5.5.2",
     "zone.js": "^0.8.14"
   },

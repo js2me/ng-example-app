@@ -1,30 +1,33 @@
-<label class="app-name">My Angular App
-  <span class="user-fullname" *ngIf="isAuth">
+<div class="layout-header-wrapper">
+  <ngx-loading-bar id="ngx-loading-bar"></ngx-loading-bar>
+  <label class="app-name">My Angular App
+    <span class="user-fullname" *ngIf="isAuth">
     <span class="separator"></span>
     <span routerLink="/account" class="user-short-info">
       <user-photo [imageUrl]="user.image" [height]="'24px'" [width]="'24px'"></user-photo>
       {{user.username}}
     </span>
   </span>
-</label>
-<div class="menu-button" id='menu-button'>
-  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 357 357" style="enable-background:new 0 0 357 357;" xml:space="preserve">
+  </label>
+  <div class="menu-button" id='menu-button'>
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 357 357" style="enable-background:new 0 0 357 357;" xml:space="preserve">
     <g>
       <g>
         <path d="M0,355.5h357v-51H0V355.5z M0,205h357v-51H0V255z M0,0v51h357v-51H0z"></path>
       </g>
     </g>
   </svg>
-</div>
-<div class="menu">
-  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
-  <a routerLink="/about" routerLinkActive="active">About</a>
-  <div class="auth-routes">
-    <a routerLink="/account" routerLinkActive="active">Account</a>
-    <a (click)="logout()" class="logout">Sign out</a>
   </div>
-  <div class="no-auth-routes">
-    <a routerLink="/login" routerLinkActive="active">Sign in</a>
-    <a routerLink="/registration" routerLinkActive="active">Sign up</a>
+  <div class="menu">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+    <a routerLink="/about" routerLinkActive="active">About</a>
+    <div class="auth-routes">
+      <a routerLink="/account" routerLinkActive="active">Account</a>
+      <a (click)="logout()" class="logout">Sign out</a>
+    </div>
+    <div class="no-auth-routes">
+      <a routerLink="/login" routerLinkActive="active">Sign in</a>
+      <a routerLink="/registration" routerLinkActive="active">Sign up</a>
+    </div>
   </div>
 </div>
