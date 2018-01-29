@@ -1,6 +1,10 @@
 <label class="app-name">My Angular App
   <span class="user-fullname" *ngIf="isAuth">
-    <span class="separator"></span><span routerLink="/account" class="user-short-info"><user-photo [imageUrl]="user.image" [height]="'24px'" [width]="'24px'"></user-photo> {{user.username}}</span>
+    <span class="separator"></span>
+    <span routerLink="/account" class="user-short-info">
+      <user-photo [imageUrl]="user.image" [height]="'24px'" [width]="'24px'"></user-photo>
+      {{user.username}}
+    </span>
   </span>
 </label>
 <div class="menu-button" id='menu-button'>

@@ -1,15 +1,20 @@
 language: node_js
+branches:
+  only:
+    - master
 node_js:
-    - "node"
+  - "node"
 cache:
-    directories:
-        - "node_modules"
+  directories:
+      - "node_modules"
 before_install:
-    - "echo ${FIREBASE_TOKEN}"
+  - npm install -g --silent @angular/cli
+  - npm install -g --silent firebase-tools
 install:
-    - "npm i firebase-tools @angular/cli -g"
-    - "npm i"
+  - npm install
 script:
-    - ng build --prod --base-href "/"
-after_script:
-    - dpl --provider=firebase --token=${FIREBASE_TOKEN} --project=ng-example-app
+  - ng build --prod --base-href "/"
+after_success:
+  - if [ ${TRAVIS_BRANCH} = "master" ] && [ "${TRAVIS_PULL_REQUEST}" = "false" ];
+    then firebase deploy --token $FIREBASE_TOKEN --non-interactive;
+    fi
