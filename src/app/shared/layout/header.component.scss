@@ -125,8 +125,8 @@
 
     .menu-button {
       display: block;
-      width: 28px;
-      height: 28px;
+      width: $menu-button-size;
+      height: $menu-button-size;
       right: calc(#{$header-height} / 3);
       position: absolute;
       top: calc(#{$header-height} / 4);
@@ -134,17 +134,14 @@
       svg {
         height: inherit;
         width: inherit;
-        fill: $common-color2;
-        fill-opacity: .9;
-        path {
-          transition: d .3s;
-        }
+        fill: $menu-button-color;
+        fill-opacity: $menu-button-opacity;
       }
     }
     &.menu-showed {
       border-radius: 0;
       height: 100%;
-      @include linear-gradient-background(#766e88, 33%, rgb(125, 124, 139), 80%);
+      @include linear-gradient-background($menu-gradient-color1, $menu-gradient-color1-pos, $menu-gradient-color2, $menu-gradient-color2-pos);
       .menu {
         display: block;
       }

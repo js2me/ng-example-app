@@ -27,10 +27,22 @@ $font-color: #000000;
 $disabled-font-color1: rgb(239, 239, 239);
 $disabled-font-color2: rgb(136, 136, 136);
 $second-font-color: white;
-$fantastic-text-shadow: 0 0px 2px, 0 2px 6px rgba(0, 0, 0, 0.41);
 
 $title-font-family: 'Roboto Slab', cursive;
 $default-font-family: 'Comfortaa', cursive;
+
+
+//mobile
+$menu-button-size: 28px;
+$menu-button-color: $common-color2;
+$menu-button-opacity: .9;
+
+$menu-gradient-color1: #27354f;
+$menu-gradient-color1-pos: 33%;
+$menu-gradient-color2: #1d2540;
+$menu-gradient-color2-pos: 80%;
+
+
 
 //height, width, position
 $header-height:56px;

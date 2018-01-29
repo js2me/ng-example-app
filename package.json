@@ -24,6 +24,7 @@
     "@ngx-loading-bar/core": "^1.1.0",
     "@ngx-loading-bar/http-client": "^1.1.0",
     "@ngx-loading-bar/router": "^1.1.0",
+    "angular-cli-ghpages": "^0.5.2",
     "core-js": "^2.4.1",
     "immutable": "^3.8.2",
     "ngx-loading-bar": "0.0.9",

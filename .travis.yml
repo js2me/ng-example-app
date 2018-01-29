@@ -8,6 +8,7 @@ cache:
   directories:
       - "node_modules"
 before_install:
+  - npm install -g --silent angular-cli-ghpages
   - npm install -g --silent @angular/cli
   - npm install -g --silent firebase-tools
 install:
@@ -16,5 +17,5 @@ script:
   - ng build --prod --base-href "/"
 after_success:
   - if [ ${TRAVIS_BRANCH} = "master" ] && [ "${TRAVIS_PULL_REQUEST}" = "false" ];
-    then firebase deploy --token $FIREBASE_TOKEN --non-interactive;
+    then firebase deploy --token $FIREBASE_TOKEN --non-interactive && ngh;
     fi
