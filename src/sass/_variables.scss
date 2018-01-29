@@ -1,5 +1,6 @@
-$main-color: #a6657d;
-$second-color: rgb(132, 75, 96);
+$main-color: #6773b0;
+$second-color: #59659e;
+$third-color: rgb(44, 53, 101);
 
 $common-color1: rgba(227, 227, 227, 1); //second color of gradient layout-header and layout-footer elements
 $common-color2: rgba(255, 255, 255, 1);
@@ -7,7 +8,6 @@ $common-color2: rgba(255, 255, 255, 1);
 
 
 
-$third-color: rgb(95, 103, 202);
 $dark-color: rgb(61, 67, 136);
 
 $disabled-color1:rgb(173, 173, 173);
@@ -16,12 +16,12 @@ $disabled-color2:rgb(150, 150, 150);
 //errors, cancel buttons
 $negative-color: #ff4344;
 //default-buttons, lines, separators
-$neutral-color: #a8a8a8;
+$neutral-color: rgba(255, 255, 255, 0.7);
 //apply buttons, positive text
 $positive-color: #75c574;
 
-$menu-auth-links-color: #36b536;
-$menu-logout-link-color: #e04f4f;
+$menu-auth-links-color: #7affa8;
+$menu-logout-link-color: #ff6565;
 
 $font-color: #000000;
 $disabled-font-color1: rgb(239, 239, 239);
@@ -34,7 +34,7 @@ $default-font-family: 'Comfortaa', cursive;
 
 //height, width, position
 $header-height:56px;
-$footer-height:56px;
+$footer-height:42px;
 
 
 //margins
