@@ -12,7 +12,8 @@ import {AuthDirective} from './shared/directives/auth.directive';
 import {UserService} from './shared/services/user.service';
 import {UserPhotoComponent} from './shared/components/user-photo/user-photo.component';
 import {SharedModule} from './shared/shared.module';
-
+import {LoadingBarHttpClientModule} from '@ngx-loading-bar/http-client';
+import {LoadingBarRouterModule} from '@ngx-loading-bar/router';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,8 @@ import {SharedModule} from './shared/shared.module';
     AuthDirective
   ],
   imports: [
+    LoadingBarRouterModule,
+    LoadingBarHttpClientModule,
     BrowserModule,
     SharedModule,
     AppRouter,
@@ -29,14 +32,14 @@ import {SharedModule} from './shared/shared.module';
   ],
   providers: [
     ApiService,
-    AuthService,
-    JwtService,
-    UserService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    AuthService,
+    JwtService,
+    UserService
   ],
   exports:[
     UserPhotoComponent

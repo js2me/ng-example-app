@@ -95,6 +95,52 @@ button.close {
   }
 }
 
+
+#ngx-loading-bar{
+  display: block;
+  $spinner-size: 14px;
+  $spinner-padding: 5px;
+
+  div#loading-bar-spinner{
+    display: block;
+    position: absolute;
+    z-index: 10002;
+    top: calc(100% - #{$spinner-size} - #{$spinner-padding});
+    left: #{$spinner-padding};
+    border-radius: inherit;
+    color: #6695e7;
+    >.spinner-icon{
+      width: $spinner-size;
+      height: $spinner-size;
+      border: solid 2px transparent;
+      border-top-color: inherit;
+      border-left-color: inherit;
+    }
+  }
+  div#loading-bar{
+    .bar{
+      background: #6695e7;
+      box-shadow: 0 1px 5px #5d85cc, 0 3px 10px #5d85cc;
+      position: absolute;
+      z-index: 10002;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      .peg{
+        color:#8cb6ff;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
 //adaptive layout-header, layout-footer and page content wrapper(.page)
 @media only screen and (max-width: 1190px) {
   $new_horizontal_margin: $_horizontal-margin - 5%;
