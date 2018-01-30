@@ -1,27 +1,84 @@
-import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import {
+  async,
+  ComponentFixture,
+  ComponentFixtureAutoDetect,
+  TestBed // Одна из первых и самых важных тестовых утилит Angular. Она создает тестовый модуль Angular (как @NgModule)
+          // который вы настраиваете в  configuringTestingModule методе
+} from '@angular/core/testing';
+import {By} from '@angular/platform-browser';
+import {CUSTOM_ELEMENTS_SCHEMA, DebugElement} from '@angular/core';
+
+import {AppComponent} from './app.component';
+import {HeaderComponent} from './shared/layout/header.component';
+import {FooterComponent} from './shared/layout/footer.component';
+import {RouterTestingModule} from '@angular/router/testing';
+import {AuthService} from './shared/services/auth.service';
+import {ApiService} from './shared/services/api.service';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {JwtService} from './shared/services/jwt.service';
+import {UserService} from './shared/services/user.service';
+
+
 describe('AppComponent', () => {
+  let component: AppComponent,
+    fixture: ComponentFixture<AppComponent>,
+    debugElement: DebugElement,
+    element: HTMLElement;
+
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
+    //Вызов configuringTestingModule в пределах beforeEach, необходим для того, чтобы
+    //TestBed мог сбросить себя до базового состояния до запуска каждого теста
+    TestBed.configureTestingModule({ //Этот метод принимает объект метаданных @NgModule.
+      //объект может содержать большинство свойств нормально NgModule
       declarations: [
-        AppComponent
+        AppComponent,
+        HeaderComponent,
+        FooterComponent
+      ], // Описываем тестируемый компонент
+      imports: [
+        HttpClientTestingModule,
+        RouterTestingModule
       ],
-    }).compileComponents();
+      providers: [
+        {
+          provide: ComponentFixtureAutoDetect,
+          useValue: true //Благодаря этому в среде Angular будет автоматически
+        },              //выполняться обнаружения изменений
+        ApiService,
+        AuthService,
+        JwtService,
+        UserService
+        //{provide: UserService, useValue: {isAuth: true, user:{name:''}}} //Пример добавления провайдера UserService
+      ],
+      schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
+      ]
+    }).compileComponents();  // компиляция шаблонов и css
   }));
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
-  it(`should have as title 'app'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app');
-  }));
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance; // AppComponent тестовый экземпляр
+    debugElement = fixture.debugElement;
+    element = debugElement.nativeElement;
+  });
+
+  it('should been created', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should display header component', () => {
     fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to app!');
-  }));
+    console.log(element.querySelector('layout-header'));
+    expect(element.querySelector('layout-header')).not.toBe(null);
+  });
+  it('should display footer component', () => {
+    expect(element.querySelector('layout-footer')).not.toBe(null);
+  });
+  it('should display page content', () => {
+    let pageElement: Element = element.querySelector('.page');
+    expect(pageElement).not.toBe(null);
+    expect(pageElement.querySelector('router-outlet')).not.toBe(null);
+  });
+
 });
