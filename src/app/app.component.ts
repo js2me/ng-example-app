@@ -1,10 +1,37 @@
-import { Component } from '@angular/core';
+import {Component, Input, NgZone, OnInit} from '@angular/core';
+import {ActivatedRoute, ActivatedRouteSnapshot, ActivationEnd, NavigationEnd, Router} from '@angular/router';
+import {Meta, Title} from '@angular/platform-browser';
+import {PageDataModel} from './shared/models/page-data.model';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'app';
+export class AppComponent implements OnInit {
+
+  constructor(private title: Title,
+              private meta: Meta,
+              private router: Router,
+              private ngZone: NgZone,
+              private activatedRoute: ActivatedRoute) {
+  }
+
+  ngOnInit(): void {
+    this.ngZone.runOutsideAngular(() => {
+      this.router.events.subscribe((event: any) => {
+        if (event instanceof ActivationEnd) {
+            this.ngZone.run(()=>{
+              const pageData: PageDataModel = event.snapshot.data as PageDataModel;
+              this.title.setTitle(pageData.title);
+              this.meta.updateTag({
+                name: 'description',
+                content: pageData.description
+              });
+            });
+        }
+      })
+    });
+  }
+
 }

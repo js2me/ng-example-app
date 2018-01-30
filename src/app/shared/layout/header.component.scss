@@ -45,6 +45,13 @@
     &:before{
         filter:grayscale(0%) contrast(142%);
     }
+    .menu{
+      a{
+        &.active{
+            background:$second-color;
+        }
+      }
+    }
   }
   .app-name {
     max-height: $header-height;
@@ -66,6 +73,7 @@
       color: $second-font-color;
       padding: 5px;
       cursor: pointer;
+      transition: all 250ms linear;
       &.logout {
         color: $menu-logout-link-color;
       }
@@ -78,8 +86,9 @@
     }
 
   }
-  .user-short-info{
+  .app-title{
     outline: none;
+    cursor: pointer;
   }
 
 

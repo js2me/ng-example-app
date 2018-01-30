@@ -2,7 +2,8 @@
 @import "~sass/mixins";
 
 .form{
-  width: 346px;
+  width: auto;
+  max-width: 346px;
   margin: auto;
   display: flex;
   flex-direction: column;

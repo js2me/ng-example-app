@@ -1,15 +1,18 @@
 <div class="layout-header-wrapper">
   <ngx-loading-bar id="ngx-loading-bar"></ngx-loading-bar>
-  <label class="app-name">My Angular App
+  <label class="app-name">
+    <span class="app-title" routerLink="/">
+      My Angular App
+    </span>
     <span class="user-fullname" *ngIf="isAuth">
     <span class="separator"></span>
-    <span routerLink="/account" class="user-short-info">
+    <span class="user-short-info">
       <user-photo [imageUrl]="user.image" [height]="'24px'" [width]="'24px'"></user-photo>
       {{user.username}}
     </span>
   </span>
   </label>
-  <div class="menu-button" id='menu-button'>
+  <div class="menu-button" id='menu-button' [class.red]="">
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 357 357" style="enable-background:new 0 0 357 357;" xml:space="preserve">
     <g>
       <g>
