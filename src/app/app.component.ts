@@ -1,7 +1,6 @@
 import {Component, Input, NgZone, OnInit} from '@angular/core';
 import {ActivatedRoute, ActivatedRouteSnapshot, ActivationEnd, NavigationEnd, Router} from '@angular/router';
 import {Meta, Title} from '@angular/platform-browser';
-import {PageDataModel} from './shared/models/page-data.model';
 
 @Component({
   selector: 'app-root',
@@ -22,11 +21,10 @@ export class AppComponent implements OnInit {
       this.router.events.subscribe((event: any) => {
         if (event instanceof ActivationEnd) {
             this.ngZone.run(()=>{
-              const pageData: PageDataModel = event.snapshot.data as PageDataModel;
-              this.title.setTitle(pageData.title);
+              this.title.setTitle(event.snapshot.data.title);
               this.meta.updateTag({
                 name: 'description',
-                content: pageData.description
+                content: event.snapshot.data.description
               });
             });
         }
