@@ -9,19 +9,6 @@ body, html {
 }
 
 
-
-.fork-me-on-github{
-  position: fixed;
-  top: 0;
-  left: 0;
-  border: 0;
-  width: 149px;
-  height: 149px;
-  background-size: cover;
-  background-image: url(../assets/fork-me-github.png);
-}
-
-
 body {
   font-family: $default-font-family;
   color: $font-color;
@@ -75,7 +62,9 @@ button.close {
       margin-bottom: 24px;
       span {
         font-size: 26px;
-        background: $main-color;
+        background: url(../assets/background-header.jpg);
+        background-position-y: top;
+        background-position-x: left;
         color: $second-font-color;
         padding: 2px 5px;
         text-shadow: 0 0px 2px, 0 2px 6px rgba(0, 0, 0, 0.41);;

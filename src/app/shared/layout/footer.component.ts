@@ -10,7 +10,6 @@ export class FooterComponent {
   @HostBinding('class.show') showHideFooter: boolean = this.checkRouterUrlForShowFooter(this.router.url);
 
   constructor(private router: Router, private ngZone: NgZone) {
-    console.log(this.router);
     this.ngZone.runOutsideAngular(() => {
       this.router.events.subscribe((routerEvent: any) => {
         if (routerEvent instanceof NavigationEnd) {
