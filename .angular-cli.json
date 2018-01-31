@@ -14,6 +14,10 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "",
+      "assets":[
+        "assets",
+        "favicon.ico"
+      ],
       "styles": [
         "sass/styles.scss",
         "sass/buttons.scss",

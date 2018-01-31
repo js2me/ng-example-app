@@ -29,7 +29,7 @@
     max-height: $header-height;
     content: '';
     background-position: center;
-    background-image: url(../../../assets/background-header.jpg);
+    background-image: url('/assets/background-header.jpg');
     filter: grayscale(50%) contrast(100%);
     transition: filter 650ms ease;
     position: absolute;
